@@ -145,6 +145,20 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
+  ctas: {
+    label?: string | null;
+    url?: string | null;
+    buttons?:
+      | {
+          label?: string | null;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'callToAction';
+  }[];
   updatedAt: string;
   createdAt: string;
 }
@@ -302,6 +316,25 @@ export interface PayloadMigration {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   content?: T;
+  ctas?:
+    | T
+    | {
+        callToAction?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              buttons?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }

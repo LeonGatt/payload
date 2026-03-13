@@ -22,5 +22,39 @@ export const PostsCollection: CollectionConfig = {
         features: ({ defaultFeatures }) => [...defaultFeatures],
       }),
     },
+    {
+      name: 'ctas',
+      type: 'blocks',
+      blocks: [
+        {
+          slug: 'callToAction',
+          fields: [
+            {
+              name: 'label',
+              type: 'text',
+            },
+            {
+              name: 'url',
+              type: 'text',
+            },
+            {
+              name: 'buttons',
+              type: 'array',
+              fields: [
+                {
+                  name: 'label',
+                  type: 'text',
+                },
+                {
+                  name: 'url',
+                  type: 'text',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      required: true,
+    },
   ],
 }
